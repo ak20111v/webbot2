@@ -1,0 +1,12 @@
+[0;1;31m×[0m wireguard-bot.service - Wireguard Bot Service
+     Loaded: loaded (/etc/systemd/system/wireguard-bot.service; enabled; vendor preset: enabled)
+     Active: [0;1;31mfailed[0m (Result: exit-code) since Wed 2024-09-11 03:55:45 MSK; 1s ago
+    Process: 304662 ExecStart=/bin/bash -c cd /root/wireguard-bot && source /root/.cache/pypoetry/virtualenvs/wireguard-bot-HQhWNfUr-py3.10/bin/activate && exec python app.py [0;1;31m(code=exited, status=1/FAILURE)[0m
+   Main PID: 304662 (code=exited, status=1/FAILURE)
+        CPU: 415ms
+
+Sep 11 03:55:45 1886485-oa42092.twc1.net systemd[1]: wireguard-bot.service: Scheduled restart job, restart counter is at 5.
+Sep 11 03:55:45 1886485-oa42092.twc1.net systemd[1]: Stopped Wireguard Bot Service.
+Sep 11 03:55:45 1886485-oa42092.twc1.net systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mwireguard-bot.service: Start request repeated too quickly.[0m
+Sep 11 03:55:45 1886485-oa42092.twc1.net systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mwireguard-bot.service: Failed with result 'exit-code'.[0m
+Sep 11 03:55:45 1886485-oa42092.twc1.net systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start Wireguard Bot Service.[0m
