@@ -1,0 +1,3 @@
+# pack-refs with: peeled fully-peeled sorted 
+f7f78a5fd3c8344d3bad394c0868dbdcaf995558 refs/remotes/origin/feat/docker
+57c6f1d71eebdb6c0febefff37cbdec0067f46ab refs/remotes/origin/master
