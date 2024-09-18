@@ -2,7 +2,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from database.selector import is_user_have_config, all_user_configs
 
 
-async def payed_user_kb():
+async def payed_user_kb():# основное меню 
     keyboard = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
     keyboard.insert(KeyboardButton("🆕 Создать конфиг"))
     keyboard.insert(KeyboardButton("🤳Как настроить VPN"))
@@ -15,7 +15,7 @@ async def payed_user_kb():
     return keyboard
 
 
-async def update_user_kb(user_id: int):
+async def update_user_kb(user_id: int):#меню который выдвется после окончание срока подписки 
     keyboard = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
     keyboard.insert(KeyboardButton("🆕 Создать конфиг"))
     keyboard.insert(KeyboardButton("🤳Как настроить VPN"))
