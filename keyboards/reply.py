@@ -17,9 +17,13 @@ async def payed_user_kb():
 
 async def update_user_kb(user_id: int):
     keyboard = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-    keyboard.insert(KeyboardButton( "💵 Продлить VPN", ))
-    keyboard.insert(KeyboardButton("💵 Тарифы 💵"))
+    keyboard.insert(KeyboardButton("🆕 Создать конфиг"))
+    keyboard.insert(KeyboardButton("🤳Как настроить VPN"))
+    keyboard.insert(KeyboardButton("🔑Мои ключи"))
     keyboard.insert(KeyboardButton("🕑 Моя подписка"))
+    keyboard.insert(KeyboardButton("😎 Спонсоры"))
+    keyboard.insert(KeyboardButton("😍 Пожертвовать"))
+    keyboard.insert(KeyboardButton("📝 Помощь"))
 
     if is_user_have_config(user_id=user_id):
         keyboard.insert(KeyboardButton("🔑Мои ключи"))
