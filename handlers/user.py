@@ -20,13 +20,13 @@ from utils.qr_code import create_qr_code_from_peer_data
 from aiogram.utils.exceptions import ChatNotFound
 
 async def cmd_start(message: types.Message) -> types.Message:
-    # if not message.from_user.username:
-    #     await message.answer(
-    #         f"Привет, {message.from_user.full_name}!\nУ тебя не установлено <b>Имя пользователя в телеграмме</b>, установи его в настройках телеграма и напиши /start\n"
-    #         f"{hlink('Для айфона', 'https://postimg.cc/sQ0SL4rp/')}Если не знаешь как это сделать - посмотри {hlink('справку', 'https://i.postimg.cc/gjGDngtB/21c9c45b-47f0-45a3-b9b6-7a6cb3769de0.jpg/')}",
-    #         parse_mode=types.ParseMode.HTML,
-    #     )
-    #     return
+    if not message.from_user.username:
+        await message.answer(
+            f"Привет, {message.from_user.full_name}!\nУ тебя не установлен username, установи его в настройках телеграма и напиши /start\n"
+            f"Если не знаешь как это сделать - посмотри {hlink('справку', 'https://silverweb.by/kak-sozdat-nik-v-telegramm/')}",
+            parse_mode=types.ParseMode.HTML,
+        )
+        return
     if database.selector.is_exist_user(message.from_user.id):
         status = database.selector.is_subscription_end(message.from_user.id)
         if status is True:
