@@ -2,28 +2,54 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from database.selector import is_user_have_config, all_user_configs
 
 
-async def payed_user_kb():# основное меню 
+async def payed_user_kb():#меню основное 
     keyboard = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-    keyboard.insert(KeyboardButton("🆕 Создать конфиг"))
+    keyboard.insert(KeyboardButton("🔌Подключиться"))
+    keyboard.insert(KeyboardButton("💵 Продлить VPN"))
     keyboard.insert(KeyboardButton("🤳Как настроить VPN"))
     keyboard.insert(KeyboardButton("🔑Мои ключи"))
     keyboard.insert(KeyboardButton("🕑 Моя подписка"))
     keyboard.insert(KeyboardButton("😎 Спонсоры"))
     keyboard.insert(KeyboardButton("😍 Пожертвовать"))
     keyboard.insert(KeyboardButton("📝 Помощь"))
+    keyboard.insert( KeyboardButton("💵 Тарифы VPN",))
     
     return keyboard
+# from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+# async def payed_user_kb():
+#     # Создаем инлайн-клавиатуру
+#     keyboard = InlineKeyboardMarkup(row_width=2)
+    
+#     # Добавляем инлайн-кнопки с callback_data
+#     buttons = [
+#         InlineKeyboardButton("🔌 Подключиться", callback_data='connect'),
+#         InlineKeyboardButton("🤳 Как настроить VPN", callback_data='setup_vpn'),
+#         InlineKeyboardButton("🔑 Мои ключи", callback_data='my_keys'),
+#         InlineKeyboardButton("🕑 Моя подписка", callback_data='my_subscription'),
+#         InlineKeyboardButton("😎 Спонсоры", callback_data='sponsors'),
+#         InlineKeyboardButton("😍 Пожертвовать", callback_data='donate'),
+#         InlineKeyboardButton("📝 Помощь", callback_data='help')
+#     ]
+    
+#     # Добавляем кнопки в клавиатуру
+#     for button in buttons:
+#         keyboard.add(button)
+    
+#     return keyboard
 
-async def update_user_kb(user_id: int):#меню который выдвется после окончание срока подписки 
+async def update_user_kb(user_id: int): #меню который выдвется после окончание срока подписки 
     keyboard = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-    keyboard.insert(KeyboardButton("🆕 Создать конфиг"))
+    keyboard.insert(KeyboardButton("🔌Подключиться"))
+    keyboard.insert(KeyboardButton("💵 Продлить VPN"))
     keyboard.insert(KeyboardButton("🤳Как настроить VPN"))
     keyboard.insert(KeyboardButton("🔑Мои ключи"))
     keyboard.insert(KeyboardButton("🕑 Моя подписка"))
     keyboard.insert(KeyboardButton("😎 Спонсоры"))
     keyboard.insert(KeyboardButton("😍 Пожертвовать"))
     keyboard.insert(KeyboardButton("📝 Помощь"))
+    keyboard.insert( KeyboardButton("💵 Тарифы VPN",))
+
 
     if is_user_have_config(user_id=user_id):
         keyboard.insert(KeyboardButton("🔑Мои ключи"))
@@ -32,10 +58,20 @@ async def update_user_kb(user_id: int):#меню который выдвется
 
 async def free_user_kb(user_id: int):
     keyboard = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-    keyboard.insert( KeyboardButton("💵 Купить VPN",))
+    keyboard.insert(KeyboardButton("🔌Подключиться"))
+    keyboard.insert(KeyboardButton("💵 Продлить VPN"))
+    keyboard.insert(KeyboardButton("🤳Как настроить VPN"))
+    keyboard.insert(KeyboardButton("🔑Мои ключи"))
+    keyboard.insert(KeyboardButton("🕑 Моя подписка"))
+    keyboard.insert(KeyboardButton("😎 Спонсоры"))
+    keyboard.insert(KeyboardButton("😍 Пожертвовать"))
+    keyboard.insert(KeyboardButton("📝 Помощь"))
+    keyboard.insert( KeyboardButton("💵 Тарифы VPN",))
+    
 
     if is_user_have_config(user_id=user_id):
         keyboard.insert(KeyboardButton("🔑Мои ключи"))
+        
     return keyboard
 
 
@@ -83,5 +119,7 @@ async def get_pay_buttons():
     keyboard.insert(KeyboardButton("✅3 месяц 300р"))
     keyboard.insert(KeyboardButton("✅6 месяц 600р"))
     keyboard.insert(KeyboardButton("✅12 месяц 1200р"))
+    keyboard.insert(KeyboardButton("🔙 Назад"))
+
 
     return keyboard
